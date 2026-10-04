@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Unsafe Creds - Educational Login</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 450px;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .notice {
+      margin-bottom: 28px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #555;
+    }
+
+    label {
+      font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin-top: 8px;
+      margin-bottom: 25px;
+      font-size: 20px;
+      border: 2px solid #aaa;
+      border-radius: 8px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 16px;
+      font-size: 22px;
+      font-weight: bold;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      width: 100%;
+      padding: 18px 16px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        padding: 28px 20px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      label {
+        font-size: 20px;
+      }
+
+      footer {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <h2>Sign In</h2>
+
+      <div class="notice">
+        Educational project only. Use fake test credentials — never real passwords.
+      </div>
+
+      <form action="index.php" method="POST" autocomplete="off">
+
+        <label for="login">Login:</label><br>
+
+        <input
+          type="text"
+          id="login"
+          name="login"
+          required
+          minlength="4"
+          pattern="\S+"
+          autocomplete="off"
+          autocapitalize="none"
+          spellcheck="false"
+          oninput="this.value = this.value.replace(/\s/g, '')"
+        >
+
+        <label for="password">Password:</label><br>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          minlength="4"
+          pattern="\S+"
+          autocomplete="new-password"
+          oninput="this.value = this.value.replace(/\s/g, '')"
+        >
+
+        <input type="submit" value="Submit">
+
+      </form>
+
+    </div>
+  </main>
+
+<footer>
+  Unsafe Creds &bull; Copyright &copy; 2026
+  <a
+    href="https://github.com/christofrancis"
+    target="_blank"
+    rel="noopener noreferrer"
+  >christofrancis</a>
+</footer>
+
+</body>
+</html>
