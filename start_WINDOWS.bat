@@ -85,7 +85,7 @@ REM Open the browser after a short delay
 start "" powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 1; Start-Process $env:WEBSITE_URL"
 
 REM Run PHP in the current window and save the same output to data\server.log
-powershell -NoProfile -Command "& php -S ('0.0.0.0:' + $env:PORT) router.php 2>&1 | Tee-Object -FilePath (Join-Path $env:DATA_DIR 'server.log')"
+powershell -NoProfile -Command "& php -S ('0.0.0.0:' + $env:PORT) router.php 2>&1 | ForEach-Object { $_.ToString(); $_.ToString() | Out-File -FilePath (Join-Path $env:DATA_DIR 'server.log') -Append -Encoding utf8 }"
 
 echo.
 echo Server stopped.
